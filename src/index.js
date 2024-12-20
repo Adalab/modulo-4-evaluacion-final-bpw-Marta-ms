@@ -88,7 +88,7 @@ api.post("/api/music", async (req, res) => {
         const connection = await getDBConnection();
         const query = "INSERT INTO music(name, country, genre ) VALUES (?, ?, ?)";
         const [result] = await connection.query(query, [name, country, genre ]);
-        // para comprobarlo --> veo en el workbench que se haya añadido
+        
         console.log(result);
         connection.end();
         

@@ -1,26 +1,43 @@
-Favorite International Music Bands 🎸​🎙️​
+Bandas de música internacionales favoritas 🎸​🎙️​
 
-This is an API that contains information about international music bands. Since this is a favorite music API, you will be able to check, add the new group you have discovered and delete the one you no longer like.
+Esta es una API que contiene información sobre bandas de música internacionales. Como se trata de una API de música favorita, podrás comprobarla, añadir el nuevo grupo que hayas descubierto y eliminar el que ya no te guste.
 
-Technologies Used 👩🏻‍💻
+Tecnologías utilizadas 👩🏻‍💻
 
-    - Node.js
-    - mysql workbench
-    - Postman
+    - Nodo.js
+    - banco de trabajo mysql
+    - cartero
 
-How to use the API?
+¿Cómo utilizar la API?
 
-Show all music bands
-Use the route: /api/music
+Mostrar todas las bandas de música
+Método: GET
+Utilice la ruta: http://localhost:5001/api/music
 
-Show chosen band
-Use the route: /api/music/:id
+Mostrar banda elegida
+Método: GET
+Utilice la ruta: http://localhost:5001/api/music/:id
 
-Add a new favorite band
-Use the route: /api/music
+Agregar una nueva banda favorita
+Método: POST
+Utilice la ruta: http://localhost:5001/api/music
+Información importante: Para poder añadir una nueva banda debes introducir esta estructura del body:
+{
+"name": "The Smiths",
+"country": "United Kingdom",
+"genre": "Rock"
+}
 
-Modify because that is no longer the name of the band
-Use the route: /api/music/:id
+Modificar porque ese ya no es el nombre de la banda
+Método: PUT
+Utilice la ruta: http://localhost:5001/api/music/:id
+introducir esta estructura del body:
+{
+"name": "The Smiths",
+"country": "United Kingdom",
+"genre": "Alternative Rock"
+}
 
-Delete because I don't like that music anymore
-Use the route: /api/music/:id
+Borrar porque ya no me gusta esa música.
+Método: DELETE
+Utilice la ruta: http://localhost:5001/api/music/:id
