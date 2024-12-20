@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2/promise");
 
-require ('dotenv').config();
+//BONUS 2
+require ('dotenv').config(); 
 
 const api = express();
 
@@ -37,8 +38,9 @@ api.listen(port, () => {
 /*
 1 seleccionar todos los grupos de mi db - SELECT
 2 obtener un grupo por su ID  - 
-3 modificar el género - ALTER TABLE UPDATE
-4 eliminar un grupo - DELETE
+3 añadir nuevo grupo
+4 modificar el género - UPDATE
+5 eliminar un grupo - DELETE
 */ 
 
 //1 (GET -- /api/music) ver todas mis bandas
@@ -76,6 +78,8 @@ api.post("/api/music", async (req, res) => {
     
     //si frontend no me envía los datos, le lanzo un error
     if (!name || !country || !genre) {
+
+        //respuesta de error
         res.status(400).json({
             success: false,
             message: "Bad request"
@@ -87,6 +91,7 @@ api.post("/api/music", async (req, res) => {
         // para comprobarlo --> veo en el workbench que se haya añadido
         console.log(result);
         connection.end();
+        
         res.status(201).json({
             success: true,
             id: result.insertId // el id del registro que acabo de añadir en la DB
@@ -120,3 +125,19 @@ api.delete("/api/music/:id", async (req, res) => {
     // console.log(result);
     res.status(200).json({ success: true });
 })
+
+
+
+
+//BONUS
+/*
+1. Contempla el manejo de errores en los endpoints.
+2. Instala dotenv para gestionar la contraseña y datos de acceso a la base de datos
+con variables de entorno.
+3. Puedes subir el servidor de la API a algún servicio como Render para que esté disponible en Internet.
+4. Puedes agregar un carpeta configurada con un servidor de estáticos en el que haya una pequeña
+aplicación Frontend que permita consultar alguno de los endpoint del API.
+5. Puedes instalar y configurar la librería Swagger para generar una página web con la documentación
+de los endpoints de vuestra API
+
+*/ 
